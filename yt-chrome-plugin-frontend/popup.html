@@ -70,10 +70,80 @@
       color: #ffffff;
       margin-top: 5px;
     }
+    /* API key setup */
+    #api-key-setup {
+      background-color: #2a2a2a;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+    #api-key-setup input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #555;
+      background-color: #1e1e1e;
+      color: #f1f1f1;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: monospace;
+      font-size: 12px;
+    }
+    #api-key-setup button {
+      width: 100%;
+      padding: 8px;
+      background-color: #0099ff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #api-key-setup button:hover {
+      background-color: #0077cc;
+    }
+    #api-key-setup .help-text {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 8px;
+    }
+    #api-key-setup a {
+      color: #0099ff;
+    }
+    #api-key-error {
+      color: #ff6384;
+      font-size: 12px;
+      margin-top: 6px;
+      display: none;
+    }
+    .settings-link {
+      font-size: 11px;
+      color: #888;
+      text-align: right;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .settings-link:hover {
+      color: #0099ff;
+    }
   </style>
 </head>
 <body>
   <h1>YouTube Comment Insights</h1>
+
+  <div id="api-key-setup" style="display: none;">
+    <div class="section-title">YouTube Data API Key Required</div>
+    <p style="font-size: 12px;">This extension needs a YouTube Data API v3 key to fetch comments. Your key is stored locally on this device only.</p>
+    <input type="password" id="api-key-input" placeholder="Paste your API key here" autocomplete="off" />
+    <button id="api-key-save">Save Key</button>
+    <div id="api-key-error"></div>
+    <div class="help-text">
+      Get a key from the <a href="https://console.cloud.google.com/apis/credentials" target="_blank">Google Cloud Console</a> (enable <em>YouTube Data API v3</em>).
+    </div>
+  </div>
+
+  <div id="settings-link" class="settings-link" style="display: none;">Change API key</div>
+
   <div id="output" class="section"></div>
   <script src="popup.js"></script>
 </body>
